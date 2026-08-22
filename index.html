@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A simple Windows 10 interface kit for FiveM experiences.">
+  <title>W10 UI — Windows-inspired interface library</title>
+  <link rel="preconnect" href="https://use.fontawesome.com" crossorigin>
+  <script>try{const saved=localStorage.getItem("w10-theme");const dark=saved?saved==="dark":matchMedia("(prefers-color-scheme: dark)").matches;document.documentElement.dataset.theme=dark?"dark":"light";document.documentElement.style.colorScheme=dark?"dark":"light"}catch{}</script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.7.2/css/all.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#overview" aria-label="W10 UI home">
+        <span class="brand-mark"><i class="fa-brands fa-windows"></i></span>
+        <span>W10 UI</span>
+      </a>
+
+      <nav aria-label="Component navigation">
+        <p class="nav-label">Library</p>
+        <a class="nav-item active" href="#overview"><i class="fa-solid fa-window-maximize"></i>Overview</a>
+        <a class="nav-item" href="#controls"><i class="fa-solid fa-toggle-on"></i>Controls</a>
+        <a class="nav-item" href="#notifications"><i class="fa-solid fa-bell"></i>Notifications</a>
+        <a class="nav-item" href="#menus"><i class="fa-solid fa-bars"></i>Menus</a>
+        <a class="nav-item" href="#inputs"><i class="fa-solid fa-keyboard"></i>Inputs</a>
+        <a class="nav-item" href="#progress"><i class="fa-solid fa-chart-simple"></i>Progress</a>
+        <a class="nav-item" href="#settings"><i class="fa-solid fa-gear"></i>Settings</a>
+      </nav>
+
+      <a class="github-link" href="https://github.com/overextended/ox_lib" target="_blank" rel="noreferrer">
+        <i class="fa-brands fa-github"></i>
+        Reference library
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </a>
+
+      <div class="sidebar-footer">
+        <div class="status-dot"></div>
+        <div><strong>v1.1.0</strong><span>13 components ready</span></div>
+      </div>
+    </aside>
+
+    <section class="content">
+      <header class="topbar">
+        <div class="breadcrumb">
+          <span>Components</span>
+          <i class="fa-solid fa-chevron-right"></i>
+          <strong>Overview</strong>
+        </div>
+        <div class="topbar-actions">
+          <a class="top-link" href="#library">All components</a>
+          <button class="icon-button theme-toggle" id="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false"><i class="fa-solid fa-moon"></i></button>
+          <a class="icon-button" href="https://fontawesome.com" target="_blank" rel="noreferrer" aria-label="Font Awesome icons"><i class="fa-solid fa-icons"></i></a>
+        </div>
+      </header>
+
+      <div class="page-content">
+        <section class="hero" id="overview">
+          <p class="eyebrow">Windows 10 interface library</p>
+          <h1>Simple components.<br>Familiar by design.</h1>
+          <p class="hero-copy">A lightweight collection of crisp, dependable UI building blocks made for FiveM experiences.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#controls"><i class="fa-solid fa-play"></i>Explore components</a>
+            <a class="button secondary" href="https://github.com/overextended/ox_lib" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i>Reference library</a>
+          </div>
+        </section>
+
+        <section class="stats" aria-label="Library statistics">
+          <div><strong>13</strong><span>Core components</span></div>
+          <div><strong>0</strong><span>Heavy dependencies</span></div>
+          <div><strong>100%</strong><span>Keyboard friendly</span></div>
+        </section>
+
+        <section class="section" id="controls">
+          <div class="section-heading">
+            <div><p class="section-number">01</p><h2>Controls</h2></div>
+            <p>Clear controls for the actions players use most.</p>
+          </div>
+
+          <div class="component-grid two-columns">
+            <article class="component-card">
+              <div class="card-title"><div><span>Buttons</span><h3>Action buttons</h3></div><code>Button</code></div>
+              <div class="demo-surface center-content">
+                <div class="button-row">
+                  <button class="button primary"><i class="fa-solid fa-check"></i>Confirm</button>
+                  <button class="button secondary">Cancel</button>
+                  <button class="button ghost" aria-label="More options"><i class="fa-solid fa-ellipsis"></i></button>
+                </div>
+              </div>
+            </article>
+
+            <article class="component-card">
+              <div class="card-title"><div><span>Selection</span><h3>Switches & checks</h3></div><code>Toggle</code></div>
+              <div class="demo-surface control-stack">
+                <label class="switch-row"><input type="checkbox" checked><span class="switch"></span><span><strong>Vehicle lock</strong><small>Keep the vehicle secured</small></span></label>
+                <label class="check-row"><input type="checkbox" checked><span><i class="fa-solid fa-check"></i></span>Show player names</label>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="notifications">
+          <div class="section-heading">
+            <div><p class="section-number">02</p><h2>Feedback</h2></div>
+            <p>Quiet when it should be, unmissable when it matters.</p>
+          </div>
+
+          <div class="component-grid two-columns">
+            <article class="component-card">
+              <div class="card-title"><div><span>Notifications</span><h3>Toast message</h3></div><code>Notify</code></div>
+              <div class="demo-surface notification-preview">
+                <div class="mini-notification">
+                  <div class="notification-icon success"><i class="fa-solid fa-check"></i></div>
+                  <div><strong>Vehicle stored</strong><span>Your vehicle is safe in Pillbox Garage.</span></div>
+                  <button aria-label="Close preview"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <button class="text-button" id="show-toast">Show live notification <i class="fa-solid fa-arrow-right"></i></button>
+              </div>
+            </article>
+
+            <article class="component-card">
+              <div class="card-title"><div><span>Alert</span><h3>Confirmation dialog</h3></div><code>AlertDialog</code></div>
+              <div class="demo-surface alert-preview center-content">
+                <div class="alert-symbol"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                <div><strong>Drop this item?</strong><span>This action cannot be undone.</span></div>
+                <button class="button secondary compact" id="open-dialog">Open dialog</button>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="menus">
+          <div class="section-heading">
+            <div><p class="section-number">03</p><h2>Menus</h2></div>
+            <p>Structured choices without visual clutter.</p>
+          </div>
+
+          <div class="component-grid two-columns">
+            <article class="component-card menu-card">
+              <div class="card-title"><div><span>List menu</span><h3>Player actions</h3></div><code>Menu</code></div>
+              <div class="menu-preview">
+                <button><span class="menu-icon"><i class="fa-solid fa-car"></i></span><span><strong>Call a taxi</strong><small>Nearest driver · 2 min</small></span><i class="fa-solid fa-chevron-right"></i></button>
+                <button><span class="menu-icon"><i class="fa-solid fa-location-crosshairs"></i></span><span><strong>Share location</strong><small>Send your current position</small></span><i class="fa-solid fa-chevron-right"></i></button>
+                <button><span class="menu-icon"><i class="fa-solid fa-user-group"></i></span><span><strong>Nearby players</strong><small>4 players in range</small></span><i class="fa-solid fa-chevron-right"></i></button>
+              </div>
+            </article>
+
+            <article class="component-card context-card">
+              <div class="card-title"><div><span>Context menu</span><h3>Quick options</h3></div><code>Context</code></div>
+              <div class="demo-surface context-surface">
+                <button class="context-target" id="context-button" aria-expanded="false" aria-controls="context-menu"><i class="fa-solid fa-ellipsis-vertical"></i>Open context menu</button>
+                <div class="context-popover" id="context-menu" role="menu" hidden>
+                  <button role="menuitem"><i class="fa-solid fa-pen"></i>Rename</button>
+                  <button role="menuitem"><i class="fa-solid fa-copy"></i>Duplicate</button>
+                  <div></div>
+                  <button class="danger" role="menuitem"><i class="fa-solid fa-trash"></i>Delete</button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="inputs">
+          <div class="section-heading">
+            <div><p class="section-number">04</p><h2>Inputs</h2></div>
+            <p>Simple fields with obvious focus and readable labels.</p>
+          </div>
+
+          <article class="component-card form-card">
+            <div class="card-title"><div><span>Input dialog</span><h3>Create a character</h3></div><code>InputDialog</code></div>
+            <div class="form-preview">
+              <label><span>First name</span><input type="text" placeholder="Alex"></label>
+              <label><span>Last name</span><input type="text" placeholder="Morgan"></label>
+              <label><span>Birth date</span><div class="input-icon"><input type="text" placeholder="MM / DD / YYYY"><i class="fa-solid fa-calendar"></i></div></label>
+              <label><span>Home city</span><select><option>Los Santos</option><option>Sandy Shores</option><option>Paleto Bay</option></select></label>
+            </div>
+            <div class="form-footer"><span>All fields are required</span><button class="button primary">Create character</button></div>
+          </article>
+        </section>
+
+        <section class="section" id="progress">
+          <div class="section-heading">
+            <div><p class="section-number">05</p><h2>Progress & prompts</h2></div>
+            <p>Fast, readable status for tasks and interactions.</p>
+          </div>
+
+          <div class="component-grid two-columns">
+            <article class="component-card">
+              <div class="card-title"><div><span>Progress</span><h3>Repairing vehicle</h3></div><code>Progress</code></div>
+              <div class="demo-surface progress-demo">
+                <div class="progress-label"><span><i class="fa-solid fa-screwdriver-wrench"></i>Repairing</span><strong id="progress-value">72%</strong></div>
+                <div class="progress-track"><span id="progress-bar" style="width: 72%"></span></div>
+                <button class="text-button" id="advance-progress">Advance progress <i class="fa-solid fa-arrow-right"></i></button>
+              </div>
+            </article>
+
+            <article class="component-card">
+              <div class="card-title"><div><span>Skill check</span><h3>Lockpick timing</h3></div><code>SkillCheck</code></div>
+              <div class="demo-surface skill-demo">
+                <div class="skill-key">E</div>
+                <div class="skill-bar"><span class="danger-zone"></span><span class="success-zone"></span><span class="skill-marker"></span></div>
+                <div class="skill-caption"><span>Hold steady</span><strong>GOOD</strong></div>
+              </div>
+            </article>
+          </div>
+
+          <article class="text-ui-card">
+            <div class="text-prompt"><kbd>E</kbd><span><strong>Open garage</strong><small>Pillbox Hill Garage</small></span></div>
+            <div><span class="card-kicker">Text UI</span><h3>Small prompt, clear action.</h3><p>Place contextual actions at the edge of the screen without interrupting play.</p></div>
+          </article>
+        </section>
+
+        <section class="section settings-section" id="settings">
+          <div class="section-heading">
+            <div><p class="section-number">06</p><h2>Settings</h2></div>
+            <p>A complete animated settings surface for menus and preferences.</p>
+          </div>
+
+          <article class="component-card settings-showcase-card">
+            <div class="card-title"><div><span>Settings page</span><h3>Player preferences</h3></div><code>SettingsPage</code></div>
+            <div class="settings-demo">
+              <button class="button secondary settings-reopen" id="settings-reopen" type="button" hidden><i class="fa-solid fa-gear"></i>Open settings demo</button>
+
+              <div class="settings-window" id="settings-window">
+                <div class="settings-titlebar">
+                  <span><i class="fa-solid fa-gear"></i>Settings</span>
+                  <div class="settings-window-controls">
+                    <button id="settings-minimize" type="button" aria-label="Minimize settings" aria-pressed="false"><i class="fa-solid fa-minus"></i></button>
+                    <button id="settings-maximize" type="button" aria-label="Maximize settings" aria-pressed="false"><i class="fa-regular fa-square"></i></button>
+                    <button id="settings-close" type="button" aria-label="Close settings"><i class="fa-solid fa-xmark"></i></button>
+                  </div>
+                </div>
+
+                <form class="settings-form" id="settings-form">
+                  <div class="settings-layout">
+                    <aside class="settings-sidebar">
+                      <div class="settings-account">
+                        <span><i class="fa-solid fa-user"></i></span>
+                        <div><strong>Player One</strong><small>Local preferences</small></div>
+                      </div>
+                      <div class="settings-tabs" role="tablist" aria-label="Settings categories">
+                        <button class="active" type="button" role="tab" aria-selected="true" data-settings-tab="personalization"><i class="fa-solid fa-paintbrush"></i>Personalization</button>
+                        <button type="button" role="tab" aria-selected="false" data-settings-tab="gameplay"><i class="fa-solid fa-gamepad"></i>Gameplay</button>
+                        <button type="button" role="tab" aria-selected="false" data-settings-tab="notifications"><i class="fa-solid fa-bell"></i>Notifications</button>
+                      </div>
+                    </aside>
+
+                    <div class="settings-content">
+                      <div class="settings-pane active" role="tabpanel" data-settings-pane="personalization">
+                        <div class="settings-pane-heading"><i class="fa-solid fa-paintbrush"></i><div><h4>Personalization</h4><p>Adjust the way the interface looks.</p></div></div>
+                        <label class="settings-setting">
+                          <span class="settings-copy"><i class="fa-solid fa-table-columns"></i><span><strong>Compact sidebar</strong><small>Use less space for navigation.</small></span></span>
+                          <span class="switch-row settings-switch"><input type="checkbox" checked><span class="switch"></span></span>
+                        </label>
+                        <label class="settings-setting settings-range-row" for="settings-scale">
+                          <span class="settings-copy"><i class="fa-solid fa-display"></i><span><strong>Interface scale</strong><small>Change the size of UI elements.</small></span></span>
+                          <span class="settings-range"><input id="settings-scale" type="range" min="80" max="120" value="100"><output id="settings-scale-value">100%</output></span>
+                        </label>
+                        <label class="settings-setting">
+                          <span class="settings-copy"><i class="fa-solid fa-wand-magic-sparkles"></i><span><strong>Interface animations</strong><small>Animate panels and feedback.</small></span></span>
+                          <span class="switch-row settings-switch"><input type="checkbox" checked><span class="switch"></span></span>
+                        </label>
+                      </div>
+
+                      <div class="settings-pane" role="tabpanel" data-settings-pane="gameplay" hidden>
+                        <div class="settings-pane-heading"><i class="fa-solid fa-gamepad"></i><div><h4>Gameplay</h4><p>Choose how contextual actions behave.</p></div></div>
+                        <label class="settings-setting">
+                          <span class="settings-copy"><i class="fa-solid fa-lock"></i><span><strong>Auto-lock vehicles</strong><small>Lock vehicles after walking away.</small></span></span>
+                          <span class="switch-row settings-switch"><input type="checkbox"><span class="switch"></span></span>
+                        </label>
+                        <label class="settings-setting">
+                          <span class="settings-copy"><i class="fa-solid fa-lightbulb"></i><span><strong>Contextual hints</strong><small>Show nearby interaction prompts.</small></span></span>
+                          <span class="switch-row settings-switch"><input type="checkbox" checked><span class="switch"></span></span>
+                        </label>
+                        <label class="settings-setting settings-select-row">
+                          <span class="settings-copy"><i class="fa-solid fa-keyboard"></i><span><strong>Input prompts</strong><small>Preferred prompt style.</small></span></span>
+                          <select aria-label="Input prompt style"><option>Automatic</option><option>Keyboard</option><option>Controller</option></select>
+                        </label>
+                      </div>
+
+                      <div class="settings-pane" role="tabpanel" data-settings-pane="notifications" hidden>
+                        <div class="settings-pane-heading"><i class="fa-solid fa-bell"></i><div><h4>Notifications</h4><p>Control alerts and their placement.</p></div></div>
+                        <label class="settings-setting">
+                          <span class="settings-copy"><i class="fa-solid fa-comment-dots"></i><span><strong>Toast alerts</strong><small>Show short status notifications.</small></span></span>
+                          <span class="switch-row settings-switch"><input type="checkbox" checked><span class="switch"></span></span>
+                        </label>
+                        <label class="settings-setting">
+                          <span class="settings-copy"><i class="fa-solid fa-volume-high"></i><span><strong>Notification sounds</strong><small>Play a sound with important alerts.</small></span></span>
+                          <span class="switch-row settings-switch"><input type="checkbox"><span class="switch"></span></span>
+                        </label>
+                        <div class="settings-setting settings-position-row">
+                          <span class="settings-copy"><i class="fa-solid fa-up-down-left-right"></i><span><strong>Toast position</strong><small>Choose where alerts appear.</small></span></span>
+                          <div class="settings-segments" aria-label="Toast position">
+                            <button class="active" type="button" data-settings-position="top">Top</button>
+                            <button type="button" data-settings-position="bottom">Bottom</button>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="settings-actions">
+                        <span class="settings-status" id="settings-status" aria-live="polite"><i class="fa-solid fa-circle-info"></i>Demo settings only</span>
+                        <div><button class="button secondary compact" id="settings-reset" type="reset">Reset</button><button class="button primary compact settings-save" id="settings-save" type="submit"><i class="fa-solid fa-floppy-disk"></i>Save preferences</button></div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="section library-section" id="library">
+          <div class="section-heading">
+            <div><p class="section-number">07</p><h2>Component library</h2></div>
+            <p>The complete base set for your first release.</p>
+          </div>
+          <div class="library-grid">
+            <div><i class="fa-solid fa-triangle-exclamation"></i><span>Alert dialog</span><small>01</small></div>
+            <div><i class="fa-solid fa-list"></i><span>Context menu</span><small>02</small></div>
+            <div><i class="fa-solid fa-keyboard"></i><span>Input dialog</span><small>03</small></div>
+            <div><i class="fa-solid fa-bars-staggered"></i><span>Menu</span><small>04</small></div>
+            <div><i class="fa-solid fa-bell"></i><span>Notifications</span><small>05</small></div>
+            <div><i class="fa-solid fa-spinner"></i><span>Progress</span><small>06</small></div>
+            <div><i class="fa-solid fa-bolt"></i><span>Skill check</span><small>07</small></div>
+            <div><i class="fa-solid fa-message"></i><span>Text UI</span><small>08</small></div>
+            <div><i class="fa-solid fa-circle-nodes"></i><span>Radial menu</span><small>09</small></div>
+            <div><i class="fa-solid fa-copy"></i><span>Clipboard</span><small>10</small></div>
+            <div><i class="fa-solid fa-location-dot"></i><span>Points</span><small>11</small></div>
+            <div><i class="fa-solid fa-language"></i><span>Locale</span><small>12</small></div>
+            <div><i class="fa-solid fa-gears"></i><span>Settings page</span><small>13</small></div>
+          </div>
+        </section>
+
+        <footer>
+          <div class="brand footer-brand"><span class="brand-mark"><i class="fa-brands fa-windows"></i></span><span>W10 UI</span></div>
+          <p>Designed for familiar, focused FiveM experiences.</p>
+          <a href="#overview">Back to top <i class="fa-solid fa-arrow-up"></i></a>
+        </footer>
+      </div>
+    </section>
+
+    <div class="live-notification" id="live-toast" role="status" aria-live="polite" hidden>
+      <div class="notification-icon success"><i class="fa-solid fa-check"></i></div>
+      <div><strong>Vehicle stored</strong><span>Your Sultan RS is now safe.</span></div>
+      <button id="close-toast" aria-label="Close notification"><i class="fa-solid fa-xmark"></i></button>
+      <span class="toast-progress"></span>
+    </div>
+
+    <div class="dialog-backdrop" id="dialog-backdrop" hidden>
+      <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="dialog-title">
+        <button class="dialog-close" id="close-dialog" aria-label="Close dialog"><i class="fa-solid fa-xmark"></i></button>
+        <div class="alert-symbol large"><i class="fa-solid fa-triangle-exclamation"></i></div>
+        <h3 id="dialog-title">Drop this item?</h3>
+        <p>The item will be removed from your inventory and placed on the ground.</p>
+        <div class="dialog-actions"><button class="button secondary close-dialog-button">Keep item</button><button class="button danger-button close-dialog-button">Drop item</button></div>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
+
